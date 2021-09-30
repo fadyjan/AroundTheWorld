@@ -54,8 +54,8 @@ export class CoutriesComponent implements OnInit {
       console.log(this.NewCounteryForm.value.CounteryName);
       this.api.UpdateCountry({"Id":CountryID,"Name":this.NewCounteryForm.value.CounteryName}).subscribe((res : any)=>{
         console.log(res);
-        // this.Countries.splice(index, 1 , res);
-                this.ngOnInit();
+        this.Countries.splice(index, 1 , res);
+                // this.ngOnInit();
 
       })
   }
