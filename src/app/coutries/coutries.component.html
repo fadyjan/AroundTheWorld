@@ -1,0 +1,32 @@
+<div id="AddNewCountry">
+    <form id= "NewCountryForm" [formGroup] = "NewCounteryForm" (ngSubmit)="onSubmit()">
+        <div class="user-box">
+          <input type="text" formControlName="CounteryName">
+        </div>
+
+        <button type="submit" [disabled]="!NewCounteryForm.valid" >
+          Add New Country</button>
+      </form>
+</div>
+
+
+<div id="MainContainer">
+  <div class="a-box" *ngFor="let country of Countries let i = index">
+    <div class="text-container">
+      <!-- <h3 class="CountryHeader" >{{country.name}}</h3> --> 
+      <form id= "NewCountryForm" [formGroup] = "NewCounteryForm" (ngSubmit)="EditCountry(country.id , i)">
+        <div class="form__group field">
+          <input  type="input" class="form__field" placeholder="Name" required formControlName="CounteryName"/>
+          <label class="form__label">{{country.name}}</label>
+        </div>
+
+        <button type="submit" class="ControlEditButtons" >Edit</button>
+      </form>
+      <div>
+        <button class="ControlButtons" (click)="CountryRedirect(country.id)">Full Profile</button>
+        <button class="ControlButtons" (click)="DeleteCountry(country.id , i)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+</div>
