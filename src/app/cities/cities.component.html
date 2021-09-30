@@ -1,0 +1,23 @@
+<div id="AddnewCity">
+    <form id= "NewCityForm" [formGroup] = "NewCityForm" (ngSubmit)="onSubmit()">
+        <div class="user-box">
+          <input type="text" formControlName="CityName">
+        </div>
+
+        <button type="submit" [disabled]="!NewCityForm.valid" >
+          Add New City</button>
+      </form>
+</div>
+
+<div id="MainContainer">
+    <div class="a-box" *ngFor="let city of Cities let i = index">
+      <div class="text-container">
+        <h3 class="CountryHeader">{{city.name}}</h3>
+        <div>
+            <!-- <button class="ControlButtons" >Edit</button> -->
+          <button class="ControlButtons" (click)="DeleteCity(city.id , i)">Delete</button>
+        </div>
+      </div>
+    </div>
+  
+  </div>
